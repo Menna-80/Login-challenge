@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class LoginScreenChallenge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+       // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+       // mainAxisSize: MainAxisSize.min,
         children: [
+          Spacer(),
           ClipPath(
             clipper: TopClipper(),
+
             child: Container(
               height: 300,
               padding: EdgeInsets.only(left: 40, top: 50, right: 20),
@@ -37,60 +41,70 @@ class LoginScreenChallenge extends StatelessWidget {
             height: 20.0,
           ),
           Stack(
+            clipBehavior: Clip.none,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: 350.0,
-                        height: 140,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(100.0),
-                            bottomRight: Radius.circular(100.0),
+                    Row(
+                      children: [
+                        Expanded(
+                        child: Container(
+                          width: 250,
+                          height: 140,
+                         
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(100.0),
+                              bottomRight: Radius.circular(100.0),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 15.0,
+                              ),
+                            ],
                           ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 15.0,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            TextField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                label: Text('User Name'),
-                                icon: Icon(Icons.person),
+                          child: Column(
+                            children: [
+                              TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  label: Text('User Name'),
+                                  icon: Icon(Icons.person),
+                                ),
                               ),
-                            ),
-                            TextField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                label: Text('Password'),
-                                icon: Icon(Icons.person),
+                              TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  label: Text('Password'),
+                                  icon: Icon(Icons.person),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
+                      ]
                     ),
-                    CircleAvatar(
-                      child: Icon(
-                        Icons.arrow_forward_rounded,
-                        color: Colors.white,
-                        size: 35.0,
+                    Positioned(
+                      bottom: 40,
+                      right: -25,
+                      child: Container(
+                        width: 50,
+                        child: CircleAvatar(
+                            child: Icon(
+                              Icons.arrow_forward_rounded,
+                              color: Colors.white,
+                              size: 35.0,
+                            ),
+                            backgroundColor: Color.fromRGBO(29, 209, 183, 1),
+                            radius: 35.0,
+                          ),
                       ),
-                      backgroundColor: Color.fromRGBO(29, 209, 183, 1),
-                      radius: 35.0,
                     ),
-                  ],
-                ),
-              )
+
+
+
+
             ],
           ),
           SizedBox(
@@ -111,6 +125,7 @@ class LoginScreenChallenge extends StatelessWidget {
               ),
           ),
 
+          Spacer(),
           ClipPath(
             clipper: bottomClipper(),
             child: Container(
