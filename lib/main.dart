@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'RandomWord_view.dart';
+import 'Random_view.dart';
 
 void main() {
   runApp(const MyApp());
